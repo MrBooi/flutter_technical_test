@@ -42,8 +42,8 @@ jobs:
       - name: Install lcov
         run: sudo apt-get install lcov
 
-      - name: Remove generated files from coverage
-        run: lcov --remove coverage/lcov.info -o coverage/lcov.info
+      # - name: Remove generated files from coverage
+      #   run: lcov --remove coverage/lcov.info -o coverage/lcov.info
 
       - uses: codecov/codecov-action@v3
         with:
