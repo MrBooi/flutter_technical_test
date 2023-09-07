@@ -1,0 +1,58 @@
+name: Flutter App Test
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        include:
+          - os: ubuntu-latest
+            flutter_path: /opt/hostedtoolcache/flutter
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kuhnroyal/flutter-fvm-config-action@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: ${{ env.FLUTTER_CHANNEL }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ matrix.flutter_path }}
+          key: ${{ runner.os }}-flutter-install-cache-${{ env.FLUTTER_VERSION }}
+
+      - uses: zcong1993/setup-timezone@v2.0.0
+        with:
+          # which timezone you want to use
+          timezone: Africa/Johannesburg
+
+      - name: Install Dependencies
+        run: flutter packages get
+
+      - name: Run tests
+        run: flutter test test --no-pub --test-randomize-ordering-seed random --coverage
+
+      - name: Install lcov
+        run: sudo apt-get install lcov
+
+      - name: Remove generated files from coverage
+        run: lcov --remove coverage/lcov.info 'lib/generated/*' 'lib/*/*.freezed.dart' 'lib/*/*.g.dart' -o coverage/lcov.info
+
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./coverage/lcov.info
+
+      - uses: VeryGoodOpenSource/very_good_coverage@v1
+        with:
+          path: "./coverage/lcov.info"
+          # exclude generated locatlization files
+          exclude: "lib/generated/**/*.dart"
+          min_coverage: 75
