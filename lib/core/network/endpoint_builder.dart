@@ -5,7 +5,7 @@ class EndpointBuilder {
   }) {
     return Uri(
       scheme: "https",
-      host: 'openweathermap.org',
+      host: 'api.openweathermap.org',
       path: path,
       queryParameters: queryParameters,
     );
