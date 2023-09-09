@@ -26,8 +26,7 @@ void currentWeatherServices() {
   /// Data sources
   sl.registerLazySingleton<CurrentWeatherRemoteSource>(
     () => CurrentWeatherRemoteSourceImpl(sl(),
-        appId:
-            '' // ADD API HERE,
+        appId: '1c1d0a317f4090e4791b65c5fc84ae1d' // ADD API HERE,
         ),
   );
 }

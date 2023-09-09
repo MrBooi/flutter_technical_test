@@ -14,7 +14,7 @@ void main() {
   const mockLongtitude = 10.99;
   const mockLatitude = 44.34;
   final mockUrl = Uri.parse(
-    "https://openweathermap.org/data/2.5/weather?lat=$mockLatitude&lon=$mockLongtitude&appid=appId",
+    "https://api.openweathermap.org/data/2.5/weather?lat=$mockLatitude&lon=$mockLongtitude&appid=appId",
   );
 
   setUp(() {
