@@ -25,7 +25,7 @@ void main() {
     );
     // act
     final result = await useCase(
-      GetCurrentLocationParams(
+      GetCurrentForecastLocationParams(
         latitude: mockLatitude,
         longtitude: mockLongtitude,
       ),
