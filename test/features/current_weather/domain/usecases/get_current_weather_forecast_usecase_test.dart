@@ -1,17 +1,17 @@
+import 'package:dvt_weather_app/features/current_weather/domain/usecases/get_current_weather_forecast_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:dvt_weather_app/features/current_weather/domain/usecases/get_current_weather_usecase.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../../../fixtures/current_weather/current_weather_fixture.dart';
+import '../../../../fixtures/current_weather/current_weather_forecast_item_fixture.dart';
 import '../../../../mocks/repository_mocks.dart';
 
 void main() {
-  late GetCurrentWeatherUseCase useCase;
+  late GetCurrentWeatherForecastUseCase useCase;
   late MockCurrentWeatherRepository mockRepository;
 
   setUp(() {
     mockRepository = MockCurrentWeatherRepository();
-    useCase = GetCurrentWeatherUseCase(mockRepository);
+    useCase = GetCurrentWeatherForecastUseCase(mockRepository);
   });
 
   test('should get current weather from repository.', () async {
@@ -19,8 +19,9 @@ void main() {
     const mockLongtitude = 10.99;
     const mockLatitude = 44.34;
 
-    when(() => mockRepository.getCurrentWeather(any(), any())).thenAnswer(
-      (_) async => currentWeatherFixture,
+    when(() => mockRepository.getCurrentWeatherForecast(any(), any()))
+        .thenAnswer(
+      (_) async => currentForecastFixture,
     );
     // act
     final result = await useCase(
@@ -30,9 +31,11 @@ void main() {
       ),
     );
     //assert
-    expect(result, currentWeatherFixture);
-    verify(() => mockRepository.getCurrentWeather(mockLatitude, mockLongtitude))
-        .called(1);
+    expect(result, currentForecastFixture);
+    verify(
+      () => mockRepository.getCurrentWeatherForecast(
+          mockLatitude, mockLongtitude),
+    ).called(1);
     verifyNoMoreInteractions(mockRepository);
   });
 }
