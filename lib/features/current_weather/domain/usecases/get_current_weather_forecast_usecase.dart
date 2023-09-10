@@ -3,7 +3,9 @@ import 'package:dvt_weather_app/features/current_weather/domain/entities/current
 import 'package:dvt_weather_app/features/current_weather/domain/repositories/current_weather_repository.dart';
 
 class GetCurrentWeatherForecastUseCase
-    implements UseCase<CurrentWeatherForecastEntity, GetCurrentLocationParams> {
+    implements
+        UseCase<CurrentWeatherForecastEntity,
+            GetCurrentForecastLocationParams> {
   final CurrentWeatherRepository repository;
 
   GetCurrentWeatherForecastUseCase(this.repository);
@@ -11,7 +13,7 @@ class GetCurrentWeatherForecastUseCase
   /// calls for retrieving the [CurrentWeatherForecastEntity} data from openWeather
   @override
   Future<CurrentWeatherForecastEntity> call(
-      GetCurrentLocationParams params) async {
+      GetCurrentForecastLocationParams params) async {
     return await repository.getCurrentWeatherForecast(
       params.latitude,
       params.longtitude,
@@ -19,9 +21,12 @@ class GetCurrentWeatherForecastUseCase
   }
 }
 
-class GetCurrentLocationParams {
+class GetCurrentForecastLocationParams {
   final double latitude;
   final double longtitude;
 
-  GetCurrentLocationParams({required this.latitude, required this.longtitude});
+  GetCurrentForecastLocationParams({
+    required this.latitude,
+    required this.longtitude,
+  });
 }
