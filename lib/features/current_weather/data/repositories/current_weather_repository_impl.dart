@@ -1,5 +1,6 @@
 import 'package:dvt_weather_app/features/current_weather/data/data_source/current_weather_remote_source.dart';
 import 'package:dvt_weather_app/features/current_weather/domain/entities/current_weather_entity.dart';
+import 'package:dvt_weather_app/features/current_weather/domain/entities/current_weather_forecast_entity.dart';
 import 'package:dvt_weather_app/features/current_weather/domain/repositories/current_weather_repository.dart';
 
 class CurrentWeatherRepositoryImpl implements CurrentWeatherRepository {
@@ -14,6 +15,16 @@ class CurrentWeatherRepositoryImpl implements CurrentWeatherRepository {
   ) {
     try {
       return remote.getCurrentWeather(latitude, longtitude);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<CurrentWeatherForecastEntity> getCurrentWeatherForecast(
+      double latitude, double longtitude) {
+    try {
+      return remote.getCurrentWeatherForecast(latitude, longtitude);
     } catch (e) {
       rethrow;
     }

@@ -13,7 +13,7 @@ class CurrentWeatherCubit extends Cubit<CurrentWeatherState> {
 
     try {
       final response = await currentWeatherUseCase(
-        GetCurrentUserParams(
+        GetCurrentLocationParams(
           latitude: 37.751,
           longtitude: -97.822,
         ),
