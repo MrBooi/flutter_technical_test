@@ -16,11 +16,6 @@ abstract class MainWeatherEntity {
   });
 
   @override
-  String toString() {
-    return 'MainWeatherEntity(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity)';
-  }
-
-  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 

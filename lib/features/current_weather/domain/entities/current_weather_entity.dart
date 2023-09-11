@@ -10,9 +10,6 @@ abstract class CurrentWeatherEntity {
   CurrentWeatherEntity({required this.main, required this.weather});
 
   @override
-  String toString() => 'CurrentWeatherEntity(main: $main, weather: $weather)';
-
-  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 

@@ -26,9 +26,4 @@ abstract class WeatherEntity {
   int get hashCode {
     return id.hashCode ^ main.hashCode ^ description.hashCode ^ icon.hashCode;
   }
-
-  @override
-  String toString() {
-    return 'WeatherEntity(id: $id, main: $main, description: $description, icon: $icon)';
-  }
 }
