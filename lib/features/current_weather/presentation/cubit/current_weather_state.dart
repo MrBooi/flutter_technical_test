@@ -1,3 +1,4 @@
+import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_forecast_model.dart';
 import 'package:meta/meta.dart';
 import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_model.dart';
 
@@ -24,5 +25,9 @@ final class CurrentWeatherError extends CurrentWeatherState {}
 
 final class CurrentWeatherLoaded extends CurrentWeatherState {
   final CurrentWeatherModel currentWeatherModel;
-  CurrentWeatherLoaded(this.currentWeatherModel);
+  final CurrentWeatherForecastModel forecastModel;
+  CurrentWeatherLoaded(
+    this.currentWeatherModel,
+    this.forecastModel,
+  );
 }
