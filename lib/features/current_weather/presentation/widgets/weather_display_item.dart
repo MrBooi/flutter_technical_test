@@ -1,3 +1,4 @@
+import 'package:dvt_weather_app/core/helpers/temperature_converter_helpers.dart';
 import 'package:dvt_weather_app/core/theme/theme.dart';
 import 'package:flutter/widgets.dart';
 
@@ -20,7 +21,7 @@ class WeatherDisplayItem extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Text(
-            "${temp.toString()}\u00b0",
+            "${TemperatureConverterHelpers.convertTempCelsius(temp)}\u00b0",
             style: AppTheme.themeData.textTheme.displaySmall,
           ),
         ),

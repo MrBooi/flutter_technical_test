@@ -20,7 +20,7 @@ class CopyText extends StatelessWidget {
     super.key,
     this.style,
     this.strutStyle,
-    this.textAlign = TextAlign.center,
+    this.textAlign = TextAlign.start,
     this.textDirection,
     this.locale,
     this.softWrap,

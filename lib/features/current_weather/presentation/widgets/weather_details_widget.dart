@@ -13,29 +13,34 @@ class WeatherDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60.0,
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            WeatherDisplayItem(
-              temp: mainWeatherModel.tempMin,
-              type: DisplayType.min,
+    return Column(
+      children: [
+        Container(
+          height: 60.0,
+          color: color,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                WeatherDisplayItem(
+                  temp: mainWeatherModel.tempMin,
+                  type: DisplayType.min,
+                ),
+                WeatherDisplayItem(
+                  temp: mainWeatherModel.temp,
+                  type: DisplayType.current,
+                ),
+                WeatherDisplayItem(
+                  temp: mainWeatherModel.tempMax,
+                  type: DisplayType.max,
+                ),
+              ],
             ),
-            WeatherDisplayItem(
-              temp: mainWeatherModel.temp,
-              type: DisplayType.current,
-            ),
-            WeatherDisplayItem(
-              temp: mainWeatherModel.tempMax,
-              type: DisplayType.max,
-            ),
-          ],
+          ),
         ),
-      ),
+        const Divider()
+      ],
     );
   }
 }
