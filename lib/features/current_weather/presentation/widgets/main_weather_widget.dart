@@ -1,3 +1,4 @@
+import 'package:dvt_weather_app/core/helpers/temperature_converter_helpers.dart';
 import 'package:dvt_weather_app/core/shared/copy_text.dart';
 import 'package:dvt_weather_app/core/shared/offline_assert/render_local_image.dart';
 import 'package:dvt_weather_app/core/theme/theme.dart';
@@ -29,7 +30,7 @@ class MainWeatherWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CopyText(
-                  '${model.main.tempMax.toString()}\u00b0',
+                  '${TemperatureConverterHelpers.convertTempCelsius(model.main.tempMax)}\u00b0',
                   style: AppTheme.themeData.textTheme.displayLarge,
                 ),
                 CopyText(

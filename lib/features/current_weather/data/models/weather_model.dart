@@ -1,15 +1,31 @@
 import 'package:dvt_weather_app/features/current_weather/domain/entities/weather_entity.dart';
 
 enum WeatherMode {
-  clear('Sunny', 0xFF47AB2F, 'assets/images/forest_sunny.png'),
-  rain('Rainy', 0xFF54575D, 'assets/images/forest_rainy.png'),
-  clouds('Cloudy', 0xFF54717A, 'assets/images/forest_cloudy.png');
+  clear(
+    'Sunny',
+    0xFF47AB2F,
+    'assets/images/forest_sunny.png',
+    'assets/icons/clear@3x.png',
+  ),
+  rain(
+    'Rainy',
+    0xFF54575D,
+    'assets/images/forest_rainy.png',
+    'assets/icons/rain@3x.png',
+  ),
+  clouds(
+    'Cloudy',
+    0xFF54717A,
+    'assets/images/forest_cloudy.png',
+    'assets/icons/partlysunny@3x.png',
+  );
 
-  const WeatherMode(this.path, this.color, this.imagePath);
+  const WeatherMode(this.path, this.color, this.imagePath, this.icon);
 
   final int color;
   final String path;
   final String imagePath;
+  final String icon;
 }
 
 class WeatherModel extends WeatherEntity {
