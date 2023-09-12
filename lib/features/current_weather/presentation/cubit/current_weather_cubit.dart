@@ -1,4 +1,3 @@
-import 'package:dvt_weather_app/features/current_location/data/models/location_model.dart';
 import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_forecast_model.dart';
 import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_model.dart';
 import 'package:dvt_weather_app/features/current_weather/domain/usecases/get_current_weather_forecast_usecase.dart';
