@@ -1,4 +1,5 @@
 import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_forecast_model.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_model.dart';
 
@@ -15,13 +16,22 @@ enum WeatherMode {
 }
 
 @immutable
-sealed class CurrentWeatherState {}
+sealed class CurrentWeatherState extends Equatable {}
 
-final class CurrentWeatherInitial extends CurrentWeatherState {}
+final class CurrentWeatherInitial extends CurrentWeatherState {
+  @override
+  List<Object?> get props => [];
+}
 
-final class CurrentWeatherLoading extends CurrentWeatherState {}
+final class CurrentWeatherLoading extends CurrentWeatherState {
+  @override
+  List<Object?> get props => [];
+}
 
-final class CurrentWeatherError extends CurrentWeatherState {}
+final class CurrentWeatherError extends CurrentWeatherState {
+  @override
+  List<Object?> get props => [];
+}
 
 final class CurrentWeatherLoaded extends CurrentWeatherState {
   final CurrentWeatherModel currentWeatherModel;
@@ -30,4 +40,7 @@ final class CurrentWeatherLoaded extends CurrentWeatherState {
     this.currentWeatherModel,
     this.forecastModel,
   );
+
+  @override
+  List<Object?> get props => [currentWeatherModel, forecastModel];
 }

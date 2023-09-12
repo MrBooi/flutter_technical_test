@@ -20,30 +20,28 @@ class CurrentWeatherCubit extends Cubit<CurrentWeatherState> {
     try {
       final location = await Geolocator.getCurrentPosition();
 
-      final currentRequest = await currentWeatherUseCase(
-        GetCurrentLocationParams(
-          latitude: location.latitude,
-          longtitude: location.longitude,
+      final futures = [
+        currentWeatherUseCase(
+          GetCurrentLocationParams(
+            latitude: location.latitude,
+            longtitude: location.longitude,
+          ),
         ),
-      );
+        currentWeatherForecastUseCase(
+          GetCurrentForecastLocationParams(
+            latitude: location.latitude,
+            longtitude: location.longitude,
+          ),
+        )
+      ];
 
-      final forecastRequest = await currentWeatherForecastUseCase(
-        GetCurrentForecastLocationParams(
-          latitude: location.latitude,
-          longtitude: location.longitude,
-        ),
-      );
-
-      final response = await Future.value(
-        [
-          currentRequest,
-          forecastRequest,
-        ],
-      );
+      final response = await Future.wait(futures);
 
       emit(
-        CurrentWeatherLoaded(response[0] as CurrentWeatherModel,
-            response[1] as CurrentWeatherForecastModel),
+        CurrentWeatherLoaded(
+          response[0] as CurrentWeatherModel,
+          response[1] as CurrentWeatherForecastModel,
+        ),
       );
     } catch (e) {
       emit(CurrentWeatherError());

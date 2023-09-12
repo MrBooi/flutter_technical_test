@@ -7,8 +7,6 @@ Future<void> initServices() async {
   // currentWeatherServices
   currentWeatherServices();
 
-  //  core
-
   // External
   externalServices();
 }
