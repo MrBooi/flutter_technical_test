@@ -10,6 +10,6 @@ extension DateTimeExtension on DateTime {
       "Sunday"
     ];
 
-    return weekdays[weekday];
+    return weekdays[weekday - 1];
   }
 }
