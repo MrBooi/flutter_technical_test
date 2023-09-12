@@ -1,4 +1,5 @@
 import 'package:dvt_weather_app/core/shared/loading.dart';
+import 'package:dvt_weather_app/features/current_location/data/models/location_model.dart';
 import 'package:dvt_weather_app/features/current_weather/presentation/cubit/current_weather_state.dart';
 import 'package:dvt_weather_app/features/current_weather/presentation/current_weather_page.dart';
 import 'package:flutter/material.dart';

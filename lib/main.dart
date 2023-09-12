@@ -1,14 +1,10 @@
+import 'package:dvt_weather_app/bootstrap.dart';
 import 'package:dvt_weather_app/core/theme/theme.dart';
-import 'package:dvt_weather_app/features/home/presentation/home_page.dart';
-import 'package:dvt_weather_app/locator.dart' as di;
+import 'package:dvt_weather_app/features/app_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  // Setup the dependency injection.
-  await di.initServices();
-
-  runApp(const MainApp());
+  await bootstrap(() => const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -19,7 +15,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData,
-      home: const HomePage(),
+      home: const AppWidget(),
     );
   }
 }
