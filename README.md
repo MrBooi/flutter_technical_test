@@ -75,3 +75,22 @@ Please make use of the Makefile in the root of the project which contains comman
  make flutter_cov_test
 ```
 
+# Core Dependency Packages:
+
+- http: This is the HTTP package for making HTTP requests in your Flutter app.
+
+- flutter_bloc: This package provides tools and classes for managing the state of your Flutter application using the BLoC (Business Logic Component) pattern.
+
+- get_it: This package is used for dependency injection in your Flutter app, allowing you to easily manage and provide dependencies to various parts of your app.
+
+- geolocator: This package is used for getting the current location of the device in your Flutter app. You are using version 10.0.1 of this package.
+
+- equatable: This package is used to simplify value equality checks in your Flutter app. It is often used with BLoC to compare and update states efficiently.
+
+# Dev Dependency Packages
+- mocktail: Mocktail is a mocking library for Dart and Flutter. It allows you to create mock objects for testing.
+
+- bloc_test: This package provides testing utilities for the flutter_bloc package, making it easier to write tests for your BLoC components.
+
+
+
