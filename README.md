@@ -1,6 +1,8 @@
 
 # Project Overview: Weather Application
 
+[![codecov](https://codecov.io/gh/MrBooi/flutter_technical_test/main/develop/graph/badge.svg?token=S7FSV6FZ58)](https://codecov.io/gh/MrBooi/flutter_technical_test)
+
 This a weather application that will provide users with up-to-date weather information for their current location, along with a 5-day weather forecast. The application will feature a visually appealing user interface with one design options Forest and will change background image depending if its Raining, Sunny and Cloudy.
 
 # Project Objectives:
