@@ -1,5 +1,5 @@
 import 'package:dvt_weather_app/core/helpers/current_location_helper.dart';
-import 'package:dvt_weather_app/core/shared/Error_widget.dart';
+import 'package:dvt_weather_app/core/shared/error_widget.dart';
 import 'package:dvt_weather_app/core/shared/loading.dart';
 import 'package:dvt_weather_app/features/home/presentation/home_page.dart';
 import 'package:flutter/material.dart';

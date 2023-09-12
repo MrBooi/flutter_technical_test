@@ -69,7 +69,7 @@ void main() {
       build: () => cubit,
       setUp: () {
         when(() => Geolocator.getCurrentPosition()).thenAnswer(
-          (_) async => Position(
+          (_) async => const Position(
             longitude: -30.34,
             latitude: 13.34,
             timestamp: null,

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dvt_weather_app/features/current_location/data/models/location_model.dart';
 import 'package:dvt_weather_app/features/current_location/domain/entities/location_entity.dart';
-import 'package:dvt_weather_app/features/current_weather/data/models/current_weather_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../fixtures/current_location/current_location_fixture.dart';
