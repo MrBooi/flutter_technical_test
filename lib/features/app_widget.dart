@@ -9,17 +9,19 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: determinePosition(),
-      builder: (context, state) {
-        if (state.hasError) {
-          return const AppErrorWidget(
-            errMsg: 'Please unable your location to be able to use this app.',
-          );
-        }
-        if (state.hasData) return const HomePage();
-        return const LoadingWidget();
-      },
+    return Scaffold(
+      body: FutureBuilder(
+        future: determinePosition(),
+        builder: (context, state) {
+          if (state.hasError) {
+            return const AppErrorWidget(
+              errMsg: 'Please unable your location to be able to use this app.',
+            );
+          }
+          if (state.hasData) return const HomePage();
+          return const LoadingWidget();
+        },
+      ),
     );
   }
 }
